@@ -1,0 +1,11 @@
+Use jQuery to wire up the form to return Tweets matching the search term.
+
+Using the Twitter results:
+
+- Fill out the user-list <div> with the user's picture linked to their Twitter page.
+
+- Fill out the tweet-list <ul> with the tweets, including the user's picture that is linked to their Twitter page.
+
+NEXT WEEK!
+
+We'll make this a little fancier by using JavaScript templates. Hot stuff buddy.

@@ -1,0 +1,125 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="stylesheet" href="normalize.css" media="screen" />
+
+	<style type="text/css">
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+
+		li { float: left; }
+
+		.users .user {
+			float: left;
+			margin: 0 10px 10px 0;
+		}
+
+		.user {
+			display: block;
+			width: 48px;
+			height: 48px;
+			border: 2px solid #333;
+			opacity: 0.8;
+			-webkit-transition: all 0.4s ease;
+			-moz-transition: all 0.4s ease;
+			transition: all 0.4s ease;
+		}
+
+		.user:hover { opacity: 1; }
+
+		.tweet {
+			width: 280px;
+			height: 140px;
+			margin: 0 20px 20px 0;
+			padding: 10px;
+			background: #FFFEED;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+			border: 1px solid #E8E7DC;
+			-webkit-transition: all 0.4s ease;
+			-moz-transition: all 0.4s ease;
+			transition: all 0.4s ease;
+		}
+
+		.tweet:hover { background: #FFFCD1; }
+
+		.tweet .user {
+			float: left;
+			margin-right: 10px;
+		}
+
+		.tweet:hover .user { opacity: 1; }
+
+		.tweet span {
+			display: block;
+			margin-top: 10px;
+			color: #888;
+			font-size: 12px;
+		}
+
+		/* clearfix for floats */
+		.clearfix:before,
+		.clearfix:after {
+		    content:"";
+		    display:table;
+		}
+
+		.clearfix:after { clear:both; }
+		.clearfix { zoom:1; }
+	</style>
+</head>
+<body>
+
+<div class="wrapper">
+	<header>
+		<h1>Tweets!</h1>
+		<h2>&amp; the Twitterers Who Twote Them</h2>
+	</header>
+
+	<input type="search" id="search" name="search" value="coffee" required />
+	<button type="button" id="search-button" name="search-button">Find Tweets</button>
+
+	<section class="users clearfix">
+		<header>The Users</header>
+		<div id="user-list"></div>
+	</section>
+
+	<section class="tweets">
+		<header>The Tweets</header>
+		<ul id="tweet-list"></ul>
+	</section>
+</div> <!-- /.wrapper -->
+
+<!-- KEEP THIS BELOW ALL MARKUP! -->
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="icanhaz.min.js"></script>
+
+<script type="text/javascript">
+	// YOUR JS GOES HERE
+	// here's the twitter URL template
+	// http://search.twitter.com/search.json?q=SEARCH_VALUE_HERE&rpp=20&include_entities=false&result_type=mixed
+</script>
+
+</body>
+</html>
