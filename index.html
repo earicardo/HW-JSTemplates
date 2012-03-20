@@ -1,8 +1,10 @@
 <!doctype html>
+<!--[ricardo-->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -92,17 +94,22 @@
 		<h2>&amp; the Twitterers Who Twote Them</h2>
 	</header>
 
-	<input type="search" id="search" name="search" value="coffee" required />
+	<input type="search" id="searchBar" name="search" value="" required />
 	<button type="button" id="search-button" name="search-button">Find Tweets</button>
 
+    <p id="searchTerm"></p>
+
+
+
 	<section class="users clearfix">
-		<header>The Users</header>
+		<header><b>The Users</b></header>
 		<div id="user-list"></div>
 	</section>
 
 	<section class="tweets">
-		<header>The Tweets</header>
+		<header><b>The Tweets</b></header>
 		<ul id="tweet-list"></ul>
+    
 	</section>
 </div> <!-- /.wrapper -->
 
@@ -119,6 +126,67 @@
 	// YOUR JS GOES HERE
 	// here's the twitter URL template
 	// http://search.twitter.com/search.json?q=SEARCH_VALUE_HERE&rpp=20&include_entities=false&result_type=mixed
+	
+	//targets input of searchbar
+ $('input:#searchBar').val();
+//search button shows new input text when clicked
+	$("#search-button").click(function () {
+ //places input text in a p tag (shows text)
+	$('#searchTerm').html($('input:#searchBar').val());
+		var searchValue=$('input:#searchBar').val()
+	console.log(searchValue);
+	
+	
+//begins twitter api
+
+			$.ajax({
+url: 'http://search.twitter.com/search.json?q='+ searchValue +'&rpp=20&include_entities=false&result_type=mixed',
+dataType: 'jsonp',
+type: 'GET',
+jsonpCallback: 'handle_tweets',
+success: function(data){
+
+console.log(data)
+
+var first_tweet = data.results[0];
+for( var i = 0; i < data.results.length; i++) {
+}
+
+console.log(first_tweet.text)
+console.log(first_tweet.from_user)
+console.log(first_tweet.profile_image_url);
+
+
+$('#user-list').append("<br />" + first_tweet.from_user)
+$('#user-list').append("<br />" + "<a href='http://twitter.com/#!/" + first_tweet.from_user + "'>" + "<img src='" +first_tweet.profile_image_url+ "' />" + "</a>" + "<br />")
+
+$('#tweet-list').append("<br />" + "<a href='http://twitter.com/#!/" + first_tweet.from_user + "'>" + "<img src='" +first_tweet.profile_image_url+ "' />" + "</a>" + "<br />")
+$('#tweet-list').append("<li>"+ first_tweet.text + "</li>")
+
+
+
+
+}
+});
+	
+	
+
+
+	
+
+	
+	
+	
+	
+	
+    });
+	
+
+
+	
+
+
+	
 </script>
 
 </body>
